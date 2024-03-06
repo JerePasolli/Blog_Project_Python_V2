@@ -175,7 +175,6 @@ def show_post(post_id):
     return render_template("post.html", current_user=current_user, post=requested_post, form=form)
 
 
-
 @app.route("/new-post", methods=["GET", "POST"])
 @admin_only
 def add_new_post():
@@ -193,7 +192,6 @@ def add_new_post():
         db.session.commit()
         return redirect(url_for("get_all_posts"))
     return render_template("make-post.html", current_user=current_user, form=form)
-
 
 
 @app.route("/edit-post/<int:post_id>", methods=["GET", "POST"])
@@ -219,7 +217,6 @@ def edit_post(post_id):
                            form=edit_form, is_edit=True)
 
 
-
 @app.route("/delete/<int:post_id>")
 @admin_only
 def delete_post(post_id):
@@ -232,11 +229,6 @@ def delete_post(post_id):
 @app.route("/about")
 def about():
     return render_template("about.html", current_user=current_user)
-
-
-@app.route("/contact")
-def contact():
-    return render_template("contact.html", current_user=current_user)
 
 
 if __name__ == "__main__":
